@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://klpjqkxrnlhd"]
+
+[ext_resource type="Script" path="res://boilerplate/menu/video_options.gd" id="1_0ksy2"]
+
+[node name="VideoOptions" type="GridContainer"]
+columns = 2
+script = ExtResource("1_0ksy2")
+
+[node name="Fullscreen" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+horizontal_alignment = 2
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Scaling" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Render Scaling"
+horizontal_alignment = 2
+
+[node name="ScalingContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScalingSlider" type="HSlider" parent="ScalingContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.25
+max_value = 2.0
+step = 0.25
+value = 1.0
+
+[node name="ScaleLabel" type="Label" parent="ScalingContainer"]
+layout_mode = 2
+
+[node name="Brightness" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Brightness"
+horizontal_alignment = 2
+
+[node name="BrightnessSlider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 4.0
+step = 0.001
+value = 1.0
+
+[connection signal="toggled" from="FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
+[connection signal="value_changed" from="ScalingContainer/ScalingSlider" to="." method="_on_scaling_slider_value_changed"]
+[connection signal="value_changed" from="BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]

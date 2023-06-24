@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://beqa0xujc2w2f"]
+
+[ext_resource type="PackedScene" uid="uid://chppy7har4fru" path="res://boilerplate/menu/audio_options.tscn" id="1_5bamj"]
+[ext_resource type="PackedScene" uid="uid://klpjqkxrnlhd" path="res://boilerplate/menu/video_options.tscn" id="2_cco0b"]
+[ext_resource type="PackedScene" uid="uid://daodlw026jsr" path="res://boilerplate/menu/controls_options.tscn" id="3_ecf5s"]
+
+[node name="MenuUI" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="AudioOptions" parent="." instance=ExtResource("1_5bamj")]
+layout_mode = 2
+
+[node name="VideoOptions" parent="." instance=ExtResource("2_cco0b")]
+layout_mode = 2
+
+[node name="ControlsOptions" parent="." instance=ExtResource("3_ecf5s")]
+layout_mode = 2

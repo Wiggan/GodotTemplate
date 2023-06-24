@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://c00iwt1m44w3w"]
+
+[ext_resource type="Script" path="res://boilerplate/menu/control_widget.gd" id="1_4yp7l"]
+
+[node name="ControlWidget" type="Control"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4yp7l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ActionName" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="Rebind" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="WaitingForInput" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 181.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="WaitingForInput"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+text = "Waiting for input..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/Rebind" to="." method="_on_rebind_pressed"]

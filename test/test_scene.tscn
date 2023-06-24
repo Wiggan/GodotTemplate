@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4kfs42u6hrrk"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0ttly"]
+albedo_color = Color(0.32549, 0.32549, 0.32549, 1)
+
+[node name="test_scene" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(6.181, 1, 1)
+material = SubResource("ORMMaterial3D_0ttly")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.877583, -0.229849, 0.420735, 0, 0.877583, 0.479426, -0.479426, -0.420736, 0.770151, 2.2864, 2.60534, 4.18523)
