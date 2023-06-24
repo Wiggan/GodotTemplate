@@ -5,6 +5,7 @@ func set_initial_values():
 	$SFXVolumeSlider.value = Config.sfx_volume
 	$MasterVolumeSlider.value = Config.master_volume
 
+# Set parameter values when config has been read from disk
 func _init():
 	Config.connect("ready", set_initial_values)
 

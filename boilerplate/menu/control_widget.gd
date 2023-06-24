@@ -14,18 +14,21 @@ func initialize(action_name, input_name):
 	_action_name = action_name
 	action_name_label.text = action_name.capitalize()
 	rebind.text = input_name
-	
+
+# JSON can't handle the various InputEvent types
 func _input_to_json(input):
 	var dict = {}
 	if input is InputEventMouseButton:
 		dict["type"] = "InputEventMouseButton"
 		dict["button_index"] = input.button_index
+		dict["pressed"] = input.pressed
 	elif input is InputEventKey:
 		dict["type"] = "InputEventKey"
 		dict["keycode"] = input.keycode
+		dict["pressed"] = input.pressed
 		
 	return JSON.stringify(dict)
-	
+
 func overload_action(input_event):
 	print("Rebinding action " + _action_name + " to ", input_event)
 	InputMap.action_erase_events(_action_name)
@@ -39,8 +42,13 @@ func _input(event):
 			overload_action(event)
 		set_process_input(false)
 		waiting_for_input.visible = false
+		
+		# Assigning space immediately opened the rebind panel again, but with deferred it does not.
 		h_box_container.set_deferred("visible", true)
 		rebind.call_deferred("grab_focus")
+		
+		# Consume this event so that menu does not close on escape
+		get_viewport().set_input_as_handled()
 
 func _on_rebind_pressed():
 	set_process_input(true)

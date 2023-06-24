@@ -3,6 +3,17 @@
 [ext_resource type="Script" path="res://boilerplate/menu/controls_options.gd" id="1_bg5cx"]
 
 [node name="ControlsOptions" type="GridContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -15.5
+offset_right = 48.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_bg5cx")
 
 [node name="ResetInputButton" type="Button" parent="."]

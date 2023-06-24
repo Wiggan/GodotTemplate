@@ -3,6 +3,19 @@
 [ext_resource type="Script" path="res://boilerplate/menu/video_options.gd" id="1_0ksy2"]
 
 [node name="VideoOptions" type="GridContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -43.0
+offset_right = 71.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 columns = 2
 script = ExtResource("1_0ksy2")
 

@@ -6,6 +6,7 @@ func set_initial_values():
 	$ScalingContainer/ScalingSlider.value = Config.render_scale
 	$BrightnessSlider.value = Config.brightness
 	
+# Set parameter values when config has been read from disk
 func _init():
 	Config.connect("ready", set_initial_values)
 

@@ -1,3 +1,5 @@
+# Note: Only keyboard and mouse button input is supported at the moment
+
 extends Control
 
 
@@ -10,6 +12,7 @@ func set_initial_values():
 		InputMap.action_erase_events(action)
 		InputMap.action_add_event(action, controls[action])
 
+# Set parameter values when config has been read from disk
 func _init():
 	Config.connect("ready", set_initial_values)
 

@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4kfs42u6hrrk"]
+[gd_scene load_steps=6 format=3 uid="uid://c4kfs42u6hrrk"]
+
+[ext_resource type="Script" path="res://test/character.gd" id="1_vo1vl"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_0ttly"]
 albedo_color = Color(0.32549, 0.32549, 0.32549, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dhcue"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qtmao"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j5h02"]
+size = Vector3(0.418, 0.441, 1)
 
 [node name="test_scene" type="Node3D"]
 
@@ -10,8 +19,26 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(6.181, 1, 1)
+use_collision = true
+size = Vector3(8.45493, 1, 7.72702)
 material = SubResource("ORMMaterial3D_0ttly")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.877583, -0.229849, 0.420735, 0, 0.877583, 0.479426, -0.479426, -0.420736, 0.770151, 2.2864, 2.60534, 4.18523)
+transform = Transform3D(1, 0, 0, 0, 0.282341, 0.959314, 0, -0.959314, 0.282341, 0, 9.63976, 2.397)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9274, 0)
+script = ExtResource("1_vo1vl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_dhcue")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_qtmao")
+
+[node name="Gun" type="Node3D" parent="CharacterBody3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D/Gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.774273)
+mesh = SubResource("BoxMesh_j5h02")
+skeleton = NodePath("../..")

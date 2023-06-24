@@ -15,13 +15,12 @@ var render_scale = 1
 var fullscreen = false
 var brightness = 1
 
-# Game parameters
+# game parameters
 var sensitivity = 1
 var screen_shake = 1
 
 # Load config file on ready
 func _ready():
-	# print(get_property_list())
 	var result = config_file.load(FILE_NAME)
 	
 	if result == OK:
@@ -44,6 +43,7 @@ func set_config_parameter(property, value, section=SECTION):
 	config_file.save(FILE_NAME)
 	set(property, value)
 
+# JSON can't handle the various InputEvent types
 func _json_to_input(json):
 	var event
 	if "InputEventKey" == json["type"]:
@@ -64,11 +64,12 @@ func get_controls():
 	return controls
 
 func load_config():
-		for property in get_property_list():
-			if config_file.has_section_key(SECTION, property.name):
-				set(property.name, config_file.get_value(SECTION, property.name, get(property.name)))
+	for property in get_property_list():
+		if config_file.has_section_key(SECTION, property.name):
+			set(property.name, config_file.get_value(SECTION, property.name, get(property.name)))
 
 func clear_controls():
-	config_file.erase_section(CONTROL_SECTION)
-	config_file.save(FILE_NAME)
+	if config_file.has_section(CONTROL_SECTION):
+		config_file.erase_section(CONTROL_SECTION)
+		config_file.save(FILE_NAME)
 	
