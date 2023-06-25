@@ -22,8 +22,10 @@ buses/default_bus_layout="res://boilerplate/default_bus_layout.tres"
 [autoload]
 
 Config="*res://boilerplate/menu/config.gd"
+GameManager="*res://boilerplate/game/game_manager.gd"
 Env="*res://boilerplate/env.tscn"
 Transition="*res://boilerplate/transition/transition.tscn"
+Cursor="*res://boilerplate/cursor/cursor.tscn"
 
 [display]
 

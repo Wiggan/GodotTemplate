@@ -29,7 +29,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -41,7 +41,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -168,6 +168,7 @@ _data = {
 }
 
 [node name="MenuUI" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,7 +178,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="MenuItems" type="VBoxContainer" parent="."]
-visible = false
 custom_minimum_size = Vector2(300, 500)
 layout_mode = 1
 anchors_preset = 8
@@ -219,6 +219,7 @@ layout_mode = 2
 text = "Exit"
 
 [node name="SubMenus" type="Control" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -255,6 +256,61 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="Credits" type="GridContainer" parent="SubMenus"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.5
+offset_top = -225.0
+offset_right = 251.5
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubMenus/Credits"]
+layout_mode = 2
+text = "Stuff:"
+horizontal_alignment = 2
+
+[node name="LinkButton" type="LinkButton" parent="SubMenus/Credits"]
+layout_mode = 2
+text = "WigHz"
+uri = "https://wighz.itch.io/"
+
+[node name="HowToPlay" type="MarginContainer" parent="SubMenus"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.5
+offset_top = -225.0
+offset_right = 251.5
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubMenus/HowToPlay"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b]How to play[/b]
+Some informative text and images
+[/center]"
+
+[node name="BackButton" type="Button" parent="SubMenus"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 574.0
+offset_right = 425.0
+offset_bottom = 621.0
+text = "Back"
+
 [node name="SubMenuAnimator" type="AnimationPlayer" parent="."]
 root_node = NodePath("../SubMenus")
 libraries = {
@@ -267,3 +323,4 @@ libraries = {
 [connection signal="pressed" from="MenuItems/Options" to="MenuItems" method="_on_options_pressed"]
 [connection signal="pressed" from="MenuItems/Credits" to="MenuItems" method="_on_credits_pressed"]
 [connection signal="pressed" from="MenuItems/Exit" to="MenuItems" method="_on_exit_pressed"]
+[connection signal="pressed" from="SubMenus/BackButton" to="MenuItems" method="_on_back_button_pressed"]
