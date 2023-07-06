@@ -5,7 +5,11 @@ signal unpaused
 signal game_saved
 
 @onready var game_over_screen = $GameOverScreen
+const GAME_OVER_TEXT = """[center]You held of the intruders for %d seconds but were ultimately overrun.
 
+Better luck next time![/center]"""
+
+var game_state
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_menu"):
@@ -31,6 +35,7 @@ func game_over():
 	Transition.fade_and_call(show_game_over_screen)
 
 func show_game_over_screen():
+	$GameOverScreen/VBoxContainer/PanelContainer/RichTextLabel.text = GAME_OVER_TEXT % game_state["Time"]
 	game_over_screen.set_visible(true)
 	$GameOverScreen/VBoxContainer/RetryButton.grab_focus()
 

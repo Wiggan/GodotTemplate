@@ -19,3 +19,5 @@ func _on_navigation_agent_3d_velocity_computed(safe_velocity):
 
 func on_hit():
 	animation_player.play("die")
+	linear_velocity = Vector3.ZERO
+	

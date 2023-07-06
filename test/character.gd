@@ -32,7 +32,7 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		gun.look_at(global_position + Vector3(direction.x, 0, direction.z))
+		gun.look_at(global_position + lerp(-gun.basis.z, Vector3(direction.x, 0, direction.z), 10*delta))
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)

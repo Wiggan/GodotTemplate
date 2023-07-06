@@ -33,6 +33,13 @@ ShaderCacher="*res://boilerplate/particle_stuff/shader_cacher.gd"
 
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/mjpeg_quality=0.7
+movie_writer/movie_file="C:/tmp/template.avi"
+movie_writer/disable_vsync=true
+movie_writer/fps=30
+
 [input]
 
 ui_accept={
