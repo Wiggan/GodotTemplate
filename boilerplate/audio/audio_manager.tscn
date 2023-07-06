@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt77qavjtbfmp"]
+[gd_scene load_steps=4 format=3 uid="uid://dt77qavjtbfmp"]
 
 [ext_resource type="Script" path="res://boilerplate/audio/audio_manager.gd" id="1_wltfe"]
+[ext_resource type="AudioStream" uid="uid://1s0hk0im2r3q" path="res://boilerplate/audio/focus_placeholder.wav" id="2_xof06"]
+[ext_resource type="AudioStream" uid="uid://mek3770t1mx1" path="res://boilerplate/audio/click_placeholder.wav" id="3_hk0dv"]
 
 [node name="audio_manager" type="Node"]
 script = ExtResource("1_wltfe")
 
 [node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xof06")
+bus = &"SFX"
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hk0dv")
+bus = &"SFX"

@@ -1,11 +1,10 @@
-extends Node
+extends Control
 
 signal paused
 signal unpaused
 signal game_saved
 
-func _ready():
-	process_mode = Node.PROCESS_MODE_ALWAYS
+@onready var game_over_screen = $GameOverScreen
 
 
 func _unhandled_input(event):
@@ -27,8 +26,22 @@ func pause():
 	paused.emit()
 	
 func game_over():
-	get_tree().reload_current_scene()
+	get_tree().paused = true
+	Cursor.show_cursor()
+	Transition.fade_and_call(show_game_over_screen)
 
+func show_game_over_screen():
+	game_over_screen.set_visible(true)
+	$GameOverScreen/VBoxContainer/RetryButton.grab_focus()
+
+func restart():
+	game_over_screen.set_visible(false)
+	get_tree().reload_current_scene()
+	Transition.fade_in()
+	Cursor.hide_cursor()
+	get_tree().paused = false
+
+## TODO implement these depending on game
 func save_game():
 	game_saved.emit()
 	pass

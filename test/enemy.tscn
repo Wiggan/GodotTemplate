@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcjmnpk1hm8ry"]
+[gd_scene load_steps=10 format=3 uid="uid://dcjmnpk1hm8ry"]
 
 [ext_resource type="Script" path="res://test/enemy.gd" id="1_3ylo5"]
 [ext_resource type="Texture2D" uid="uid://k2pwg25v73v8" path="res://boilerplate/particle_stuff/classic_particle_color_ramp.tres" id="2_qowd4"]
+[ext_resource type="SphereMesh" uid="uid://cndaqibxucu86" path="res://test/draw_passes/enemy.tres" id="3_jslhj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fh3j2"]
 
@@ -14,22 +15,44 @@ initial_velocity_min = 4.07
 initial_velocity_max = 5.73
 color_ramp = ExtResource("2_qowd4")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucbdh"]
-transparency = 1
-blend_mode = 1
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.803922, 0.803922, 0.803922, 1)
-emission_enabled = true
-emission = Color(0.898039, 0.337255, 0, 1)
-emission_energy_multiplier = 3.37
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="SphereMesh" id="SphereMesh_07wxv"]
-material = SubResource("StandardMaterial3D_ucbdh")
+[sub_resource type="Animation" id="Animation_hoyni"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ni3d1"]
 resource_name = "die"
@@ -88,45 +111,6 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_hoyni"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GPUParticles3D:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D:transparency")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape3D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pl2a1"]
 _data = {
 "RESET": SubResource("Animation_hoyni"),
@@ -159,7 +143,7 @@ lifetime = 0.59
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_yoy5s")
-draw_pass_1 = SubResource("SphereMesh_07wxv")
+draw_pass_1 = ExtResource("3_jslhj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

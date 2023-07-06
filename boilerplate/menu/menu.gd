@@ -17,15 +17,14 @@ func _unhandled_input(event):
 			
 			# Consume this event so that menu does not close on escape
 			get_viewport().set_input_as_handled()
-			
+
 
 func _on_resume_pressed():
 	GameManager.unpause()
 
 
 func _on_start_pressed():
-	pass # Replace with function body.
-
+	Transition.fade_and_call(Transition.load_level.bind("res://test/test_scene.tscn"))
 
 func _on_how_to_play_pressed():
 	options.visible = false
@@ -48,12 +47,12 @@ func _on_credits_pressed():
 
 
 func _on_exit_pressed():
-	get_tree().quit()
+	Transition.fade_and_call(get_tree().quit)
 
 
 func _on_back_button_pressed():
 	sub_menu_animator.play("hide_submenu")
 
 func _on_visibility_changed():
-	if visible:
+	if visible and resume:
 		resume.grab_focus()

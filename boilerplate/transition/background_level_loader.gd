@@ -9,10 +9,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	ResourceLoader.load_threaded_get_status(scene_to_load, progress)
+	var status = ResourceLoader.load_threaded_get_status(scene_to_load, progress)
 	progress_bar.value = progress[0]
-	print("Progress: " + str(progress[0]) + " delta: " + str(_delta))
-	if progress[0] == 1:
+	print("Status: " + str(status) + " Progress: " + str(progress[0]) + " delta: " + str(_delta))
+	if status == ResourceLoader.THREAD_LOAD_LOADED:
 		print("Finished loading!")
 		var packed_scene = ResourceLoader.load_threaded_get(scene_to_load)
 		get_tree().change_scene_to_packed(packed_scene)
+		queue_free()
+		GameManager.unpause()
+		Transition.fade_in()
+		ShaderCacher.call_deferred("show_all_draw_passes_once")

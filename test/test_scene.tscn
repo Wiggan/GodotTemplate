@@ -14,6 +14,21 @@ emission_enabled = true
 emission = Color(0.294118, 0, 0, 1)
 emission_energy_multiplier = 3.25
 
+[sub_resource type="Animation" id="Animation_s5vh4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.25]
+}
+
 [sub_resource type="Animation" id="Animation_ooava"]
 resource_name = "new_animation"
 length = 2.0
@@ -29,21 +44,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [3.25, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_s5vh4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.25]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_osl65"]
@@ -65,8 +65,6 @@ domain_warp_enabled = true
 domain_warp_amplitude = 50.447
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ympaw"]
-width = 5120
-height = 5120
 color_ramp = SubResource("Gradient_36xov")
 noise = SubResource("FastNoiseLite_t1pgd")
 

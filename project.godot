@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Template"
-run/main_scene="res://test/test_scene.tscn"
-config/features=PackedStringArray("4.0", "Forward Plus")
+run/main_scene="res://test/menu.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
@@ -22,10 +22,12 @@ buses/default_bus_layout="res://boilerplate/default_bus_layout.tres"
 [autoload]
 
 Config="*res://boilerplate/menu/config.gd"
-GameManager="*res://boilerplate/game/game_manager.gd"
+GameManager="*res://boilerplate/game/game_manager.tscn"
 Env="*res://boilerplate/env.tscn"
 Transition="*res://boilerplate/transition/transition.tscn"
 Cursor="*res://boilerplate/cursor/cursor.tscn"
+AudioManager="*res://boilerplate/audio/audio_manager.tscn"
+ShaderCacher="*res://boilerplate/particle_stuff/shader_cacher.gd"
 
 [display]
 
@@ -85,7 +87,7 @@ ui_menu={
 }
 shoot={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(79, 14),"global_position":Vector2(83, 57),"factor":1.0,"button_index":1,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(79, 14),"global_position":Vector2(83, 57),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 jump={

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://q8tf6x68c1ng"]
+
+[ext_resource type="Script" path="res://test/menu.gd" id="1_dtqao"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_dtqao")

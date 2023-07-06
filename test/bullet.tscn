@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvl5lt6jlkku4"]
+[gd_scene load_steps=12 format=3 uid="uid://dvl5lt6jlkku4"]
 
 [ext_resource type="Script" path="res://test/bullet.gd" id="1_mkk3k"]
+[ext_resource type="QuadMesh" uid="uid://dvmlx18hoty2b" path="res://test/draw_passes/bullet.tres" id="2_ev0i3"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_u8mjd"]
 albedo_color = Color(1, 0.4, 0.4, 1)
@@ -31,23 +32,44 @@ initial_velocity_min = 1.91
 initial_velocity_max = 2.51
 color_ramp = SubResource("GradientTexture1D_urc48")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kd6dp"]
-transparency = 1
-blend_mode = 1
-shading_mode = 0
-disable_ambient_light = true
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.85098, 0.839216, 1)
-disable_receive_shadows = true
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_i5dv2"]
-material = SubResource("StandardMaterial3D_kd6dp")
-size = Vector2(0.3, 0.3)
+[sub_resource type="Animation" id="Animation_qhjbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area3D/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ox7mu"]
 resource_name = "explode"
@@ -106,45 +128,6 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_qhjbs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GPUParticles3D:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Area3D/CollisionShape3D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w1au0"]
 _data = {
 "RESET": SubResource("Animation_qhjbs"),
@@ -178,7 +161,7 @@ one_shot = true
 preprocess = 0.01
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_bs305")
-draw_pass_1 = SubResource("QuadMesh_i5dv2")
+draw_pass_1 = ExtResource("2_ev0i3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
