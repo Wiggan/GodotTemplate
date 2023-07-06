@@ -1,4 +1,5 @@
 extends Control
+@onready var fullscreen_check_box = $FullscreenCheckBox
 
 
 func set_initial_values():
@@ -22,3 +23,7 @@ func _on_fullscreen_check_box_toggled(button_pressed):
 func _on_brightness_slider_value_changed(value):
 	Env.environment.adjustment_brightness = value
 	Config.set_config_parameter("brightness", value)
+
+func _on_visibility_changed():
+	if is_visible_in_tree():
+		fullscreen_check_box.grab_focus()

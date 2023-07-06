@@ -52,6 +52,13 @@ func _json_to_input(json):
 	elif "InputEventMouseButton" == json["type"]:
 		event = InputEventMouseButton.new()
 		event.button_index = json["button_index"]
+	elif "InputEventJoypadButton" == json["type"]:
+		event = InputEventJoypadButton.new()
+		event.button_index = json["button_index"]
+	elif "InputEventJoypadMotion" == json["type"]:
+		event = InputEventJoypadMotion.new()
+		event.axis = json["axis"]
+		event.axis_value = json["axis_value"]
 	return event
 	
 func get_controls():
@@ -59,7 +66,10 @@ func get_controls():
 	if CONTROL_SECTION in config_file.get_sections():
 		for key in config_file.get_section_keys(CONTROL_SECTION):
 			var json = JSON.parse_string(config_file.get_value(CONTROL_SECTION, key))
-			controls[key] = _json_to_input(json)
+			if json:
+				controls[key] = _json_to_input(json)
+			else:
+				print("Failed parsing " + key)
 			
 	return controls
 

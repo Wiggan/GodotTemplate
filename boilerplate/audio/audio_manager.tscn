@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt77qavjtbfmp"]
+
+[ext_resource type="Script" path="res://boilerplate/audio/audio_manager.gd" id="1_wltfe"]
+
+[node name="audio_manager" type="Node"]
+script = ExtResource("1_wltfe")
+
+[node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]

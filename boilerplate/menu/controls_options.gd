@@ -1,6 +1,7 @@
 # Note: Only keyboard and mouse button input is supported at the moment
 
 extends Control
+@onready var reset_input_button = $ResetInputButton
 
 
 const control_widget = preload("res://boilerplate/menu/control_widget.tscn")
@@ -32,3 +33,7 @@ func _on_reset_input_button_pressed():
 		if child.has_method("initialize"):
 			var input = InputMap.action_get_events(child._action_name)[0].as_text()
 			child.initialize(child._action_name, input)
+
+func _on_visibility_changed():
+	if is_visible_in_tree():
+		reset_input_button.grab_focus()

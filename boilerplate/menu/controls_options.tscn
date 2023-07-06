@@ -16,8 +16,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bg5cx")
 
-[node name="ResetInputButton" type="Button" parent="."]
+[node name="ResetInputButton" type="Button" parent="." groups=["Button"]]
 layout_mode = 2
 text = "Reset Input"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="ResetInputButton" to="." method="_on_reset_input_button_pressed"]

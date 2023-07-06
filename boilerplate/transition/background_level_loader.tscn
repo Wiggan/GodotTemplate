@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1ag4vd2sfpf1"]
+
+[ext_resource type="Script" path="res://boilerplate/transition/background_level_loader.gd" id="1_jp7y8"]
+
+[sub_resource type="Gradient" id="Gradient_mvyte"]
+offsets = PackedFloat32Array(0, 0.989041)
+colors = PackedColorArray(0, 0, 0, 1, 0.136826, 0.136826, 0.136826, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w722s"]
+gradient = SubResource("Gradient_mvyte")
+
+[sub_resource type="Gradient" id="Gradient_m0n0w"]
+colors = PackedColorArray(0, 0.160784, 0, 1, 0.58261, 1, 0.551536, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gbpnn"]
+gradient = SubResource("Gradient_m0n0w")
+
+[node name="background_level_loader" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jp7y8")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.001
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_w722s")
+texture_progress = SubResource("GradientTexture2D_gbpnn")

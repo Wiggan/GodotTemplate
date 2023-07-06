@@ -26,6 +26,14 @@ func _input_to_json(input):
 		dict["type"] = "InputEventKey"
 		dict["keycode"] = input.keycode
 		dict["pressed"] = input.pressed
+	elif input is InputEventJoypadButton:
+		dict["type"] = "InputEventJoypadButton"
+		dict["button_index"] = input.button_index
+		dict["pressed"] = input.pressed
+	elif input is InputEventJoypadMotion:
+		dict["type"] = "InputEventJoypadMotion"
+		dict["axis"] = input.axis
+		dict["axis_value"] = input.axis_value
 		
 	return JSON.stringify(dict)
 
@@ -37,18 +45,26 @@ func overload_action(input_event):
 	Config.set_config_parameter(_action_name, _input_to_json(input_event), Config.CONTROL_SECTION)
 
 func _input(event):
-	if event is InputEventMouseButton or event is InputEventKey:
-		if not event.is_action_pressed("ui_cancel"):
-			overload_action(event)
-		set_process_input(false)
-		waiting_for_input.visible = false
-		
-		# Assigning space immediately opened the rebind panel again, but with deferred it does not.
-		h_box_container.set_deferred("visible", true)
-		rebind.call_deferred("grab_focus")
-		
-		# Consume this event so that menu does not close on escape
-		get_viewport().set_input_as_handled()
+	if event is InputEventMouseMotion:
+		return
+	if event is InputEventJoypadMotion:
+		if absf(event.axis_value) < 0.3:
+			return
+		else:
+			event.axis_value = sign(event.axis_value)
+
+	#if event is InputEventMouseButton or event is InputEventKey:
+	if not event.is_action_pressed("ui_cancel"):
+		overload_action(event)
+	set_process_input(false)
+	waiting_for_input.visible = false
+	
+	# Assigning space immediately opened the rebind panel again, but with deferred it does not.
+	h_box_container.set_deferred("visible", true)
+	rebind.call_deferred("grab_focus")
+	
+	# Consume this event so that menu does not close on escape
+	get_viewport().set_input_as_handled()
 
 func _on_rebind_pressed():
 	set_process_input(true)

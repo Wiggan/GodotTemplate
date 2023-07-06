@@ -23,7 +23,7 @@ size_flags_horizontal = 3
 text = "Master Volume"
 horizontal_alignment = 2
 
-[node name="MasterVolumeSlider" type="HSlider" parent="."]
+[node name="MasterVolumeSlider" type="HSlider" parent="." groups=["Slider"]]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 2.0
@@ -36,7 +36,7 @@ size_flags_horizontal = 3
 text = "Music Volume"
 horizontal_alignment = 2
 
-[node name="BGMVolumeSlider" type="HSlider" parent="."]
+[node name="BGMVolumeSlider" type="HSlider" parent="." groups=["Slider"]]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 2.0
@@ -49,13 +49,14 @@ size_flags_horizontal = 3
 text = "Sound Effects Volume"
 horizontal_alignment = 2
 
-[node name="SFXVolumeSlider" type="HSlider" parent="."]
+[node name="SFXVolumeSlider" type="HSlider" parent="." groups=["Slider"]]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 2.0
 step = 0.001
 value = 1.0
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="value_changed" from="MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="BGMVolumeSlider" to="." method="_on_bgm_volume_slider_value_changed"]
 [connection signal="value_changed" from="SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]

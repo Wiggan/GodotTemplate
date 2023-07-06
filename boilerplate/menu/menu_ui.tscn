@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://beqa0xujc2w2f"]
+[gd_scene load_steps=10 format=3 uid="uid://beqa0xujc2w2f"]
 
 [ext_resource type="PackedScene" uid="uid://chppy7har4fru" path="res://boilerplate/menu/audio_options.tscn" id="1_5bamj"]
 [ext_resource type="Script" path="res://boilerplate/menu/menu.gd" id="1_lwq7m"]
+[ext_resource type="Script" path="res://boilerplate/menu/options.gd" id="2_bgxwi"]
 [ext_resource type="PackedScene" uid="uid://klpjqkxrnlhd" path="res://boilerplate/menu/video_options.tscn" id="2_cco0b"]
 [ext_resource type="PackedScene" uid="uid://daodlw026jsr" path="res://boilerplate/menu/controls_options.tscn" id="3_ecf5s"]
 
@@ -196,11 +197,12 @@ script = ExtResource("1_lwq7m")
 
 [node name="Resume" type="Button" parent="MenuItems" groups=["Button"]]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Exit")
 text = "Resume"
 
 [node name="Start" type="Button" parent="MenuItems" groups=["Button"]]
 layout_mode = 2
-text = "Start"
+text = "New Game"
 
 [node name="HowToPlay" type="Button" parent="MenuItems" groups=["Button"]]
 layout_mode = 2
@@ -216,6 +218,7 @@ text = "Credits"
 
 [node name="Exit" type="Button" parent="MenuItems" groups=["Button"]]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Resume")
 text = "Exit"
 
 [node name="SubMenus" type="Control" parent="."]
@@ -242,6 +245,7 @@ offset_right = 251.5
 offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_bgxwi")
 
 [node name="Audio" parent="SubMenus/Options" instance=ExtResource("1_5bamj")]
 layout_mode = 2
@@ -276,7 +280,7 @@ layout_mode = 2
 text = "Stuff:"
 horizontal_alignment = 2
 
-[node name="LinkButton" type="LinkButton" parent="SubMenus/Credits"]
+[node name="LinkButton" type="LinkButton" parent="SubMenus/Credits" groups=["Button"]]
 layout_mode = 2
 text = "WigHz"
 uri = "https://wighz.itch.io/"
@@ -303,7 +307,7 @@ text = "[center][b]How to play[/b]
 Some informative text and images
 [/center]"
 
-[node name="BackButton" type="Button" parent="SubMenus"]
+[node name="BackButton" type="Button" parent="SubMenus" groups=["Button"]]
 layout_mode = 0
 offset_left = 325.0
 offset_top = 574.0
@@ -317,6 +321,7 @@ libraries = {
 "": SubResource("AnimationLibrary_72tno")
 }
 
+[connection signal="visibility_changed" from="MenuItems" to="MenuItems" method="_on_visibility_changed"]
 [connection signal="pressed" from="MenuItems/Resume" to="MenuItems" method="_on_resume_pressed"]
 [connection signal="pressed" from="MenuItems/Start" to="MenuItems" method="_on_start_pressed"]
 [connection signal="pressed" from="MenuItems/HowToPlay" to="MenuItems" method="_on_how_to_play_pressed"]

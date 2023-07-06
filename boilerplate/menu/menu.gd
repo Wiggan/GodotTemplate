@@ -2,12 +2,15 @@ extends VBoxContainer
 @onready var options = $"../SubMenus/Options"
 @onready var credits = $"../SubMenus/Credits"
 @onready var how_to_play = $"../SubMenus/HowToPlay"
+@onready var resume = $Resume
 
 @onready var sub_menu_animator = $"../SubMenuAnimator"
 @onready var sub_menus = $"../SubMenus"
 
+func _on_show():
+	resume.grab_focus()
 
-func _unhandled_key_input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		if sub_menus.visible:
 			sub_menu_animator.play("hide_submenu")
@@ -50,3 +53,7 @@ func _on_exit_pressed():
 
 func _on_back_button_pressed():
 	sub_menu_animator.play("hide_submenu")
+
+func _on_visibility_changed():
+	if visible:
+		resume.grab_focus()

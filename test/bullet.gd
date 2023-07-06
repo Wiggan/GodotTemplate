@@ -1,4 +1,5 @@
 extends Node3D
+@onready var animation_player = $AnimationPlayer
 
 const SPEED = 10
 
@@ -8,4 +9,11 @@ func _physics_process(delta):
 
 
 func _on_timer_timeout():
-	queue_free()
+	animation_player.play("explode")
+
+
+func _on_area_3d_body_entered(body):
+	animation_player.play("explode")
+	if not body.collision_layer & 1:
+		body.on_hit()
+	animation_player.play("explode")

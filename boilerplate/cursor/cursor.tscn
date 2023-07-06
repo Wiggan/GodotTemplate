@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://drqj7uq7mq8ti"]
 
-[ext_resource type="Gradient" uid="uid://0lx6ekhyv40i" path="res://boilerplate/particle_stuff/classic_particle_color_ramp.tres" id="1_7hhw1"]
+[ext_resource type="Gradient" uid="uid://0lx6ekhyv40i" path="res://boilerplate/particle_stuff/classic_particle_gradient.tres" id="1_7hhw1"]
 [ext_resource type="Script" path="res://boilerplate/cursor/cursor.gd" id="1_ro1wc"]
 
 [node name="cursor" type="CPUParticles2D"]

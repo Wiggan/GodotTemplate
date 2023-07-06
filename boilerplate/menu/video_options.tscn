@@ -25,7 +25,7 @@ size_flags_horizontal = 3
 text = "Fullscreen"
 horizontal_alignment = 2
 
-[node name="FullscreenCheckBox" type="CheckBox" parent="."]
+[node name="FullscreenCheckBox" type="CheckBox" parent="." groups=["Button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -38,7 +38,7 @@ horizontal_alignment = 2
 [node name="ScalingContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ScalingSlider" type="HSlider" parent="ScalingContainer"]
+[node name="ScalingSlider" type="HSlider" parent="ScalingContainer" groups=["Slider"]]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.25
@@ -56,7 +56,7 @@ size_flags_horizontal = 3
 text = "Brightness"
 horizontal_alignment = 2
 
-[node name="BrightnessSlider" type="HSlider" parent="."]
+[node name="BrightnessSlider" type="HSlider" parent="." groups=["Slider"]]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.01
@@ -64,6 +64,7 @@ max_value = 4.0
 step = 0.001
 value = 1.0
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="toggled" from="FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
 [connection signal="value_changed" from="ScalingContainer/ScalingSlider" to="." method="_on_scaling_slider_value_changed"]
 [connection signal="value_changed" from="BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]

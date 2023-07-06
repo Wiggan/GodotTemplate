@@ -1,4 +1,5 @@
 extends Control
+@onready var master_volume_slider = $MasterVolumeSlider
 
 func set_initial_values():
 	$BGMVolumeSlider.value = Config.bgm_volume
@@ -23,4 +24,6 @@ func _on_sfx_volume_slider_value_changed(value):
 func _on_master_volume_slider_value_changed(value):
 	_set_bus_volume("Master", "master_volume", value)
 
-
+func _on_visibility_changed():
+	if is_visible_in_tree():
+		master_volume_slider.grab_focus()

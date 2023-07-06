@@ -18,7 +18,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 horizontal_alignment = 2
 
-[node name="Rebind" type="Button" parent="HBoxContainer"]
+[node name="Rebind" type="Button" parent="HBoxContainer" groups=["Button"]]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 

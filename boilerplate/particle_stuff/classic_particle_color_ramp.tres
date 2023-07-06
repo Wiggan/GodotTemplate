@@ -1,5 +1,6 @@
-[gd_resource type="Gradient" format=3 uid="uid://0lx6ekhyv40i"]
+[gd_resource type="GradientTexture1D" load_steps=2 format=3 uid="uid://k2pwg25v73v8"]
+
+[ext_resource type="Gradient" uid="uid://0lx6ekhyv40i" path="res://boilerplate/particle_stuff/classic_particle_gradient.tres" id="1_be26n"]
 
 [resource]
-offsets = PackedFloat32Array(0, 0.160858, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.615686, 1, 1, 1, 0)
+gradient = ExtResource("1_be26n")
