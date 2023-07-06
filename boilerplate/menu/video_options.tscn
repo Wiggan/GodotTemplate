@@ -35,19 +35,7 @@ size_flags_horizontal = 3
 text = "Render Scaling"
 horizontal_alignment = 2
 
-[node name="ScalingContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="ScalingSlider" type="HSlider" parent="ScalingContainer" groups=["Slider"]]
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 0.25
-max_value = 2.0
-step = 0.25
-value = 1.0
-
-[node name="ScaleLabel" type="Label" parent="ScalingContainer"]
-custom_minimum_size = Vector2(40, 0)
+[node name="OptionButton" type="OptionButton" parent="." groups=["Button"]]
 layout_mode = 2
 
 [node name="Brightness" type="Label" parent="."]
@@ -66,5 +54,5 @@ value = 1.0
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="toggled" from="FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
-[connection signal="value_changed" from="ScalingContainer/ScalingSlider" to="." method="_on_scaling_slider_value_changed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="value_changed" from="BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]

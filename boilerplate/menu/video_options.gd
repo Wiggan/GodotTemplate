@@ -3,8 +3,13 @@ extends Control
 
 
 func set_initial_values():
+	$OptionButton.add_item("Original: 1.00")
+	$OptionButton.add_item("Ultra Quality: 0.77")
+	$OptionButton.add_item("Quality: 0.67")
+	$OptionButton.add_item("Balanced: 0.59")
+	$OptionButton.add_item("Performance: 0.5")
 	$FullscreenCheckBox.button_pressed = Config.fullscreen
-	$ScalingContainer/ScalingSlider.value = Config.render_scale
+	$OptionButton.selected = Config.render_scale
 	$BrightnessSlider.value = Config.brightness
 	
 # Set parameter values when config has been read from disk
@@ -27,3 +32,8 @@ func _on_brightness_slider_value_changed(value):
 func _on_visibility_changed():
 	if is_visible_in_tree():
 		fullscreen_check_box.grab_focus()
+
+const SCALES = [1.0, 0.77, 0.67, 0.59, 0.5]
+func _on_option_button_item_selected(index):
+	RenderingServer.viewport_set_scaling_3d_scale(get_viewport().get_viewport_rid(), SCALES[index])
+	Config.set_config_parameter("render_scale", index)

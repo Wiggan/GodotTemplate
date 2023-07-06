@@ -137,4 +137,5 @@ ui_previous_tab={
 
 [rendering]
 
+scaling_3d/mode=1
 anti_aliasing/quality/screen_space_aa=1

@@ -1,10 +1,13 @@
 extends CPUParticles2D
 
+var cursor_offset
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameManager.connect("paused", show_cursor)
 	GameManager.connect("unpaused", hide_cursor)
 	hide_cursor()
+	cursor_offset = ProjectSettings.get_setting("display/mouse_cursor/custom_image_hotspot")
 	
 func show_cursor():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -20,4 +23,4 @@ func hide_cursor():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		transform.origin = get_viewport().get_mouse_position() + Vector2(10, 10)
+		transform.origin = get_viewport().get_mouse_position() + cursor_offset
