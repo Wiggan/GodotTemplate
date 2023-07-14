@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c64j332q4wi5"]
+
+[ext_resource type="PackedScene" uid="uid://docg602yrhnif" path="res://entities/enemies/model.tscn" id="1_o2on4"]
+[ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_x46ku"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lu2bk"]
+radius = 0.4
+
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 256
+script = ExtResource("1_x46ku")
+
+[node name="Model" parent="." instance=ExtResource("1_o2on4")]
+
+[node name="CollisionBox" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_lu2bk")
