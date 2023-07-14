@@ -24,7 +24,7 @@ func _on_resume_pressed():
 
 
 func _on_start_pressed():
-	Transition.fade_and_call(Transition.load_level.bind("res://test/test_scene.tscn"))
+	Transition.fade_and_call(Transition.load_level.bind("res://game/game.tscn"))
 
 func _on_how_to_play_pressed():
 	options.visible = false
