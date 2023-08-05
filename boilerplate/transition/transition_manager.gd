@@ -9,8 +9,16 @@ var callback: Callable
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameManager.connect("paused", menu_animation.play.bind("show"))
-	GameManager.connect("unpaused", menu_animation.play.bind("hide"))
+	GameManager.connect("paused", show_menu)
+	GameManager.connect("unpaused", hide_menu)
+
+func hide_menu():
+	menu_animation.play("hide")
+	AudioManager.play_song(AudioManager.Song.GAME)
+
+func show_menu():
+	menu_animation.play("show")
+	AudioManager.play_song(AudioManager.Song.MENU)
 
 func load_level(level):
 	var loader = background_level_loader.instantiate()

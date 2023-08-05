@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://beqa0xujc2w2f"]
+[gd_scene load_steps=11 format=3 uid="uid://beqa0xujc2w2f"]
 
 [ext_resource type="PackedScene" uid="uid://chppy7har4fru" path="res://boilerplate/menu/audio_options.tscn" id="1_5bamj"]
+[ext_resource type="Theme" uid="uid://dcyvtvwqjqgrh" path="res://boilerplate/ui/theme.tres" id="1_20m18"]
 [ext_resource type="Script" path="res://boilerplate/menu/menu.gd" id="1_lwq7m"]
 [ext_resource type="Script" path="res://boilerplate/menu/options.gd" id="2_bgxwi"]
 [ext_resource type="PackedScene" uid="uid://klpjqkxrnlhd" path="res://boilerplate/menu/video_options.tscn" id="2_cco0b"]
@@ -177,6 +178,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_20m18")
 
 [node name="MenuItems" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(300, 500)

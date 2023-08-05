@@ -11,6 +11,9 @@ Better luck next time![/center]"""
 
 var game_state
 
+enum State {MainMenu, Game, Score}
+var state
+
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_menu"):
 		if get_tree().paused:
@@ -22,8 +25,9 @@ func _unhandled_input(event):
 			unpause()
 			
 func unpause():
-	get_tree().paused = false
-	unpaused.emit()
+	if state == State.Game:
+		get_tree().paused = false
+		unpaused.emit()
 	
 func pause():
 	get_tree().paused = true
@@ -33,13 +37,16 @@ func game_over():
 	get_tree().paused = true
 	Cursor.show_cursor()
 	Transition.fade_and_call(show_game_over_screen)
+	AudioManager.play_song(AudioManager.Song.SCORE, true, 2)
 
 func show_game_over_screen():
+	state = State.Score
 	$GameOverScreen/VBoxContainer/PanelContainer/RichTextLabel.text = GAME_OVER_TEXT % game_state["Time"]
 	game_over_screen.set_visible(true)
 	$GameOverScreen/VBoxContainer/RetryButton.grab_focus()
 
 func restart():
+	state = State.Game
 	game_over_screen.set_visible(false)
 	get_tree().reload_current_scene()
 	Transition.fade_in()

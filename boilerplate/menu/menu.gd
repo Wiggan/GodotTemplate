@@ -3,6 +3,7 @@ extends VBoxContainer
 @onready var credits = $"../SubMenus/Credits"
 @onready var how_to_play = $"../SubMenus/HowToPlay"
 @onready var resume = $Resume
+@onready var start = $Start
 
 @onready var sub_menu_animator = $"../SubMenuAnimator"
 @onready var sub_menus = $"../SubMenus"
@@ -20,10 +21,11 @@ func _unhandled_input(event):
 
 
 func _on_resume_pressed():
-	GameManager.unpause()
+	create_tween().tween_callback(GameManager.unpause).set_delay(0.3)
 
 
 func _on_start_pressed():
+	GameManager.state = GameManager.State.Game
 	Transition.fade_and_call(Transition.load_level.bind("res://game/game.tscn"))
 
 func _on_how_to_play_pressed():
@@ -54,5 +56,12 @@ func _on_back_button_pressed():
 	sub_menu_animator.play("hide_submenu")
 
 func _on_visibility_changed():
-	if visible and resume:
-		resume.grab_focus()
+	if $"..".is_visible_in_tree():
+		if GameManager.state == GameManager.State.Game:
+			resume.disabled = false
+			resume.grab_focus()
+		else:
+			resume.disabled = true
+			start.grab_focus()
+			
+		
