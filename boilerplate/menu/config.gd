@@ -19,6 +19,8 @@ var brightness = 1
 var sensitivity = 1
 var screen_shake = 1
 
+var nickname = ""
+
 # Load config file on ready
 func _ready():
 	var result = config_file.load(FILE_NAME)

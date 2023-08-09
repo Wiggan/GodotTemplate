@@ -9,7 +9,9 @@ const GAME_OVER_TEXT = """[center]You held of the intruders for %d seconds but w
 
 Better luck next time![/center]"""
 
-var game_state
+var game_state = {
+	"Score": 10
+}
 
 enum State {MainMenu, Game, Score}
 var state

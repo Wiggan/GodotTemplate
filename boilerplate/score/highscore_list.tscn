@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ewce8qi8p1yx"]
+
+[ext_resource type="Script" path="res://boilerplate/score/highscore.gd" id="1_2arhr"]
+
+[node name="ItemList" type="ItemList"]
+clip_contents = false
+size_flags_vertical = 3
+mouse_filter = 2
+allow_search = false
+max_text_lines = 2
+text_overrun_behavior = 1
+max_columns = 2
+same_column_width = true
+script = ExtResource("1_2arhr")
