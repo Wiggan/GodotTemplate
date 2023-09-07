@@ -11,25 +11,21 @@ config_version=5
 [application]
 
 config/name="Template"
-run/main_scene="res://game/main_menu.tscn"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
-[audio]
-
-buses/default_bus_layout="res://boilerplate/default_bus_layout.tres"
-
 [autoload]
 
-Config="*res://boilerplate/menu/config.gd"
-GameManager="*res://boilerplate/game/game_manager.tscn"
-Env="*res://boilerplate/env.tscn"
-Transition="*res://boilerplate/transition/transition.tscn"
-Cursor="*res://boilerplate/cursor/cursor.tscn"
-AudioManager="*res://boilerplate/audio/audio_manager.tscn"
-ShaderCacher="*res://boilerplate/particle_stuff/shader_cacher.gd"
-SmartQueuefree="*res://boilerplate/pool/smart_queuefree.gd"
-InstancePool="*res://boilerplate/pool/instance_pool.tscn"
+Config="*res://menu/config.gd"
+GameManager="*res://game/game_manager.tscn"
+Env="*res://env.tscn"
+Transition="*res://transition/transition.tscn"
+Cursor="*res://cursor/cursor.tscn"
+AudioManager="*res://audio/audio_manager.tscn"
+ShaderCacher="*res://particle_stuff/shader_cacher.gd"
+SmartQueuefree="*res://pool/smart_queuefree.gd"
+InstancePool="*res://pool/instance_pool.tscn"
 
 [display]
 

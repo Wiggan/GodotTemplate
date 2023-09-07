@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dcyvtvwqjqgrh"]
+
+[ext_resource type="Texture2D" uid="uid://beia2s5qfgv05" path="res://ui/checkbox_checked.png" id="1_gyuyx"]
+[ext_resource type="Texture2D" uid="uid://drld41j83cf3f" path="res://ui/checkbox_unchecked.png" id="2_qq04i"]
+[ext_resource type="StyleBox" uid="uid://c1u8p4c85brbx" path="res://ui/slider.tres" id="3_kxva7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ons8h"]
+texture = ExtResource("2_qq04i")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[resource]
+CheckBox/icons/checked = ExtResource("1_gyuyx")
+CheckBox/icons/unchecked = ExtResource("2_qq04i")
+HSlider/icons/grabber = ExtResource("2_qq04i")
+HSlider/icons/grabber_highlight = ExtResource("1_gyuyx")
+HSlider/styles/grabber_area = ExtResource("3_kxva7")
+HSlider/styles/grabber_area_highlight = ExtResource("3_kxva7")
+HSlider/styles/slider = SubResource("StyleBoxTexture_ons8h")
+MarginContainer/constants/margin_bottom = 60
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 20

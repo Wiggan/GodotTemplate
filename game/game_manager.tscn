@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://b31qjnt03rm1e"]
+
+[ext_resource type="Script" path="res://game/game_manager.gd" id="1_fy5w4"]
+
+[node name="game_manager" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fy5w4")
+
+[node name="GameOverScreen" type="Control" parent="."]
+visible = false
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -124.5
+offset_right = 195.0
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOverScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOverScreen/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_separation = 5
+bbcode_enabled = true
+text = "[center]You held of the intruders for a while but were ultimately overrun.
+
+Better luck next time![/center]"
+scroll_active = false
+
+[node name="RetryButton" type="Button" parent="GameOverScreen/VBoxContainer" groups=["Button"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Try again!"
+
+[connection signal="pressed" from="GameOverScreen/VBoxContainer/RetryButton" to="." method="restart"]

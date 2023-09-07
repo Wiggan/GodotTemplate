@@ -1,0 +1,170 @@
+[gd_scene load_steps=10 format=3 uid="uid://cv6aa1xdl14jd"]
+
+[ext_resource type="Theme" uid="uid://dcyvtvwqjqgrh" path="res://ui/theme.tres" id="1_iorfm"]
+[ext_resource type="Script" path="res://score/game_over_screen.gd" id="1_xvx3w"]
+[ext_resource type="Script" path="res://score/submit_highscore.gd" id="2_dmvcp"]
+[ext_resource type="PackedScene" uid="uid://ewce8qi8p1yx" path="res://score/highscore_list.tscn" id="3_060lp"]
+[ext_resource type="AudioStream" uid="uid://dncr3vwne2108" path="res://score/success.wav" id="6_nm0pd"]
+[ext_resource type="AudioStream" uid="uid://p2xi7eceoksk" path="res://score/failed.wav" id="7_4p77y"]
+
+[sub_resource type="Animation" id="Animation_rm08b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sdhkr"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.307786, 1),
+"update": 0,
+"values": [Color(0.145098, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jt7hv"]
+_data = {
+"RESET": SubResource("Animation_rm08b"),
+"new_animation": SubResource("Animation_sdhkr")
+}
+
+[node name="GameOverScreen" type="Control"]
+process_mode = 3
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_iorfm")
+script = ExtResource("1_xvx3w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_jt7hv")
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -324.0
+offset_right = 300.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 0)
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_separation = 5
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[center]Your score:"
+fit_content = true
+scroll_active = false
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel2" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_separation = 5
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[center]Highscore"
+fit_content = true
+scroll_active = false
+
+[node name="ItemList" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_060lp")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_dmvcp")
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Nickname"
+max_length = 30
+
+[node name="SubmitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" groups=["Button"]]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+text = "Submit!"
+
+[node name="Success" type="AudioStreamPlayer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+stream = ExtResource("6_nm0pd")
+volume_db = -6.433
+bus = &"SFX"
+
+[node name="Failed" type="AudioStreamPlayer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+stream = ExtResource("7_4p77y")
+bus = &"SFX"
+
+[node name="RetryButton" type="Button" parent="PanelContainer" groups=["Button"]]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Retry"
+
+[node name="ExitButton" type="Button" parent="PanelContainer" groups=["Button"]]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Quit Game"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SubmitButton" to="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" method="_on_submit_button_pressed"]
+[connection signal="pressed" from="PanelContainer/RetryButton" to="." method="restart"]
+[connection signal="pressed" from="PanelContainer/ExitButton" to="." method="_on_exit_pressed"]

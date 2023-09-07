@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6m30n44al44u"]
+
+[ext_resource type="Script" path="res://particle_stuff/show_material_for_one_frame.gd" id="1_uwuc6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_a1q43"]
+
+[node name="show_material_for_one_frame" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_a1q43")
+script = ExtResource("1_uwuc6")

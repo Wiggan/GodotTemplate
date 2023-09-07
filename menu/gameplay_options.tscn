@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt8ilq1i1tueg"]
+
+[ext_resource type="Script" path="res://menu/gameplay_options.gd" id="1_5kx88"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_top = 60.0
+offset_right = 135.0
+offset_bottom = 60.0
+
+[node name="GameplayOptions" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+script = ExtResource("1_5kx88")
+
+[node name="MouseSenitivityLabel" type="Label" parent="GameplayOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mouse Sensitivity"
+horizontal_alignment = 2
+
+[node name="MouseSenitivitySlider" type="HSlider" parent="GameplayOptions" groups=["Slider"]]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 20.0
+step = 0.001
+value = 7.0
+exp_edit = true
+
+[node name="ScreenShakeLabel" type="Label" parent="GameplayOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Screen Shake"
+horizontal_alignment = 2
+
+[node name="ScreenShakeCheckBox" type="CheckBox" parent="GameplayOptions" groups=["Button"]]
+layout_mode = 2
+
+[connection signal="visibility_changed" from="." to="GameplayOptions" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="GameplayOptions" to="GameplayOptions" method="_on_visibility_changed"]
+[connection signal="value_changed" from="GameplayOptions/MouseSenitivitySlider" to="GameplayOptions" method="_on_mouse_senitivity_slider_value_changed"]
+[connection signal="toggled" from="GameplayOptions/ScreenShakeCheckBox" to="GameplayOptions" method="_on_check_box_toggled"]

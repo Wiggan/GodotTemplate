@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkho6dqhdf3hw"]
+
+[ext_resource type="Script" path="res://menu/options.gd" id="1_ubdsa"]
+[ext_resource type="PackedScene" uid="uid://dt8ilq1i1tueg" path="res://menu/gameplay_options.tscn" id="2_jpeb8"]
+[ext_resource type="PackedScene" uid="uid://chppy7har4fru" path="res://menu/audio_options.tscn" id="3_fymc6"]
+[ext_resource type="PackedScene" uid="uid://cfmxwmepw2p81" path="res://menu/video_options.tscn" id="4_xl1w2"]
+[ext_resource type="PackedScene" uid="uid://dh7ok2x233c8g" path="res://menu/controls_options.tscn" id="5_sn8p1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0bhk2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ovloc"]
+
+[node name="Options" type="Panel"]
+custom_minimum_size = Vector2(800, 800)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0bhk2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_right = 290.0
+offset_bottom = 580.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Options" type="TabContainer" parent="MarginContainer" groups=["TabContainer"]]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ovloc")
+tab_alignment = 1
+script = ExtResource("1_ubdsa")
+
+[node name="Gameplay" parent="MarginContainer/Options" instance=ExtResource("2_jpeb8")]
+layout_mode = 2
+
+[node name="Audio" parent="MarginContainer/Options" instance=ExtResource("3_fymc6")]
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="Video" parent="MarginContainer/Options" instance=ExtResource("4_xl1w2")]
+visible = false
+layout_mode = 2
+
+[node name="Controls" parent="MarginContainer/Options" instance=ExtResource("5_sn8p1")]
+visible = false
+layout_mode = 2
