@@ -40,6 +40,10 @@ movie_writer/movie_file="C:/tmp/template.avi"
 movie_writer/disable_vsync=true
 movie_writer/fps=30
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/randomizer_generator/plugin.cfg")
+
 [input]
 
 ui_accept={
