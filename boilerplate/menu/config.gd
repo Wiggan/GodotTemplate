@@ -5,18 +5,21 @@ const FILE_NAME = "user://config.cfg"
 const SECTION = "Config"
 const CONTROL_SECTION = "Controls"
 
+signal parameter_updated(parameter_name)
+
 # audio parameters
 var master_volume = 1
-var bgm_volume = 1
+var bgm_volume = 0.14
 var sfx_volume = 1
 
 # video parameters
 var render_scale = 1
 var fullscreen = false
 var brightness = 1
+var sdfgi = true
 
 # game parameters
-var sensitivity = 1
+var sensitivity = 5
 var screen_shake = 1
 
 var nickname = ""
@@ -44,6 +47,7 @@ func set_config_parameter(property, value, section=SECTION):
 	config_file.set_value(section, property, value)
 	config_file.save(FILE_NAME)
 	set(property, value)
+	parameter_updated.emit(property)
 
 # JSON can't handle the various InputEvent types
 func _json_to_input(json):

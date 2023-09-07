@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://41u3xkh4aa60"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0bhk2"]
+
+[node name="HowToPlay" type="Panel"]
+visible = false
+custom_minimum_size = Vector2(0, 750)
+theme_override_styles/panel = SubResource("StyleBoxTexture_0bhk2")
+
+[node name="HowToPlay" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 750)
+layout_mode = 2
+offset_top = 5.0
+offset_right = 800.0
+offset_bottom = 755.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlay"]
+layout_mode = 2
+theme_override_constants/line_separation = 9
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 61
+bbcode_enabled = true
+text = "[center][b]How To Play[/b][/center]
+[center]Enter the Portal
+Find and touch the Shrine
+Survive and clean your Enemies
+Restore all Spells[/center]
+
+[center][b]Controls:[/b][/center]
+[center]WASD: Movement 
+CTRL: Run 
+Shift: Dash
+Left Click: Melee Attack
+Right Click: Magic Attack
+Q, E, R or 1, 2, 3: Select Spell[/center]"

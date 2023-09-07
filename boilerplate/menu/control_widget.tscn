@@ -1,26 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://c00iwt1m44w3w"]
+[gd_scene load_steps=3 format=3 uid="uid://y4x1arfsr8xi"]
 
-[ext_resource type="Script" path="res://boilerplate/menu/control_widget.gd" id="1_4yp7l"]
+[ext_resource type="Script" path="res://boilerplate/menu/control_widget.gd" id="2_xxnpe"]
 
 [node name="ControlWidget" type="Control"]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_4yp7l")
+script = ExtResource("2_xxnpe")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(750, 0)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/separation = 40
 
 [node name="ActionName" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 horizontal_alignment = 2
 
 [node name="Rebind" type="Button" parent="HBoxContainer" groups=["Button"]]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="WaitingForInput" type="Panel" parent="."]
 visible = false

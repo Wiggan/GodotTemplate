@@ -4,9 +4,13 @@ extends VBoxContainer
 @onready var how_to_play = $"../SubMenus/HowToPlay"
 @onready var resume = $Resume
 @onready var start = $Start
+@onready var high_score = $"../SubMenus/HighScore"
 
 @onready var sub_menu_animator = $"../SubMenuAnimator"
 @onready var sub_menus = $"../SubMenus"
+
+func _ready():
+	visibility_changed.connect(_on_visibility_changed)
 
 func _on_show():
 	resume.grab_focus()
@@ -21,32 +25,42 @@ func _unhandled_input(event):
 
 
 func _on_resume_pressed():
-	create_tween().tween_callback(GameManager.unpause).set_delay(0.3)
-
+	if GameManager.state == GameManager.State.Game:
+		create_tween().tween_callback(GameManager.unpause).set_delay(0.3)
+	elif GameManager.has_saved_game():
+		GameManager.restart(false)
 
 func _on_start_pressed():
-	GameManager.state = GameManager.State.Game
-	Transition.fade_and_call(Transition.load_level.bind("res://game/game.tscn"))
+	GameManager.restart(true)
 
 func _on_how_to_play_pressed():
 	options.visible = false
 	credits.visible = false
 	how_to_play.visible = true
+	high_score.visible = false
 	sub_menu_animator.play("show_submenu")
 
 func _on_options_pressed():
 	options.visible = true
 	credits.visible = false
 	how_to_play.visible = false
+	high_score.visible = false
 	sub_menu_animator.play("show_submenu")
-
 
 func _on_credits_pressed():
 	options.visible = false
 	credits.visible = true
 	how_to_play.visible = false
+	high_score.visible = false
 	sub_menu_animator.play("show_submenu")
 
+func _on_highscore_pressed():
+	options.visible = false
+	credits.visible = false
+	how_to_play.visible = false
+	high_score.visible = true
+	$"../SubMenus/HighScore/HighScore/VBoxContainer/HighScore".update_list()
+	sub_menu_animator.play("show_submenu")
 
 func _on_exit_pressed():
 	Transition.fade_and_call(get_tree().quit)
@@ -57,7 +71,7 @@ func _on_back_button_pressed():
 
 func _on_visibility_changed():
 	if $"..".is_visible_in_tree():
-		if GameManager.state == GameManager.State.Game:
+		if GameManager.state == GameManager.State.Game or GameManager.has_saved_game():
 			resume.disabled = false
 			resume.grab_focus()
 		else:

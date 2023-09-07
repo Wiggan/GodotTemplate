@@ -11,6 +11,7 @@ func set_initial_values():
 	$FullscreenCheckBox.button_pressed = Config.fullscreen
 	$OptionButton.selected = Config.render_scale
 	$BrightnessSlider.value = Config.brightness
+	$SDFGICheckbox.button_pressed = Config.sdfgi
 	
 # Set parameter values when config has been read from disk
 func _init():
@@ -26,7 +27,6 @@ func _on_fullscreen_check_box_toggled(button_pressed):
 	Config.set_config_parameter("fullscreen", button_pressed)
 
 func _on_brightness_slider_value_changed(value):
-	Env.environment.adjustment_brightness = value
 	Config.set_config_parameter("brightness", value)
 
 func _on_visibility_changed():
@@ -37,3 +37,7 @@ const SCALES = [1.0, 0.77, 0.67, 0.59, 0.5]
 func _on_option_button_item_selected(index):
 	RenderingServer.viewport_set_scaling_3d_scale(get_viewport().get_viewport_rid(), SCALES[index])
 	Config.set_config_parameter("render_scale", index)
+
+
+func _on_sdfgi_checkbox_toggled(button_pressed):
+	Config.set_config_parameter("sdfgi", button_pressed)

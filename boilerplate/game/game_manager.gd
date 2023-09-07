@@ -9,9 +9,7 @@ const GAME_OVER_TEXT = """[center]You held of the intruders for %d seconds but w
 
 Better luck next time![/center]"""
 
-var game_state = {
-	"Score": 10
-}
+var game_state = get_default_game_state()
 
 enum State {MainMenu, Game, Score}
 var state
@@ -46,22 +44,51 @@ func show_game_over_screen():
 	$GameOverScreen/VBoxContainer/PanelContainer/RichTextLabel.text = GAME_OVER_TEXT % game_state["Time"]
 	game_over_screen.set_visible(true)
 	$GameOverScreen/VBoxContainer/RetryButton.grab_focus()
+	
+	
+func get_default_game_state():
+	return {
+		"score": 0,
+	}
 
-func restart():
+	
+func restart(reset=true):
+	if reset:
+		game_state = get_default_game_state()
+		save_game()
+	else:
+		load_game()
 	state = State.Game
-	game_over_screen.set_visible(false)
-	get_tree().reload_current_scene()
-	Transition.fade_in()
 	Cursor.hide_cursor()
+	#Transition.fade_and_call(Transition.load_level.bind(ProjectSettings["application/run/main_scene"]))
+	Transition.fade_and_call(Transition.load_level.bind("res://game/Levels/home/home.tscn"))
 	get_tree().paused = false
 
-## TODO implement these depending on game
+
+const FILE_NAME = "user://game.save"
+const SECTION = "Save"
+var save_file = ConfigFile.new()
+
+func _ready():
+	var result = save_file.load(FILE_NAME)
+	if result == OK:
+		print("Found save file")
+	else:
+		print("No save file found")
+		
 func save_game():
+	print("Saving game")
+	save_file.set_value(SECTION, "game_state", game_state)
+	save_file.save(FILE_NAME)
 	game_saved.emit()
-	pass
+	
 	
 func load_game():
-	pass
+	if save_file.has_section_key(SECTION, "game_state"):
+		game_state = save_file.get_value(SECTION, "game_state")
+		print("Loaded save from file")
+	else:
+		print("No save available")
 	
 func has_saved_game():
-	return false
+	return save_file.has_section(SECTION)

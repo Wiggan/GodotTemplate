@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://klpjqkxrnlhd"]
+[gd_scene load_steps=3 format=3 uid="uid://cfmxwmepw2p81"]
 
-[ext_resource type="Script" path="res://boilerplate/menu/video_options.gd" id="1_0ksy2"]
+[ext_resource type="Theme" uid="uid://dcyvtvwqjqgrh" path="res://boilerplate/ui/theme.tres" id="1_5gd41"]
+[ext_resource type="Script" path="res://boilerplate/menu/video_options.gd" id="2_alir3"]
 
 [node name="VideoOptions" type="GridContainer"]
 anchors_preset = 8
@@ -16,8 +17,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_5gd41")
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 10
 columns = 2
-script = ExtResource("1_0ksy2")
+script = ExtResource("2_alir3")
 
 [node name="Fullscreen" type="Label" parent="."]
 layout_mode = 2
@@ -37,6 +41,7 @@ horizontal_alignment = 2
 
 [node name="OptionButton" type="OptionButton" parent="." groups=["Button"]]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 
 [node name="Brightness" type="Label" parent="."]
 layout_mode = 2
@@ -47,12 +52,24 @@ horizontal_alignment = 2
 [node name="BrightnessSlider" type="HSlider" parent="." groups=["Slider"]]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_5gd41")
 min_value = 0.01
 max_value = 4.0
 step = 0.001
 value = 1.0
 
+[node name="SDFGI" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Global Illumination"
+horizontal_alignment = 2
+
+[node name="SDFGICheckbox" type="CheckBox" parent="." groups=["Button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="toggled" from="FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="value_changed" from="BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
+[connection signal="toggled" from="SDFGICheckbox" to="." method="_on_sdfgi_checkbox_toggled"]
