@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://wl42kry76hyj"]
+
+[ext_resource type="Script" path="res://game/actor_components/navigator.gd" id="1_4ndmp"]
+
+[node name="navigator" type="NavigationAgent3D"]
+script = ExtResource("1_4ndmp")
+
+[connection signal="velocity_computed" from="." to="." method="_on_velocity_computed"]

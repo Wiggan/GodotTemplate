@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxv3dwvlyfhw0"]
+
+[ext_resource type="Script" path="res://game/actor_components/sweeping_damage_giver.gd" id="1_tm3f1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rk8dl"]
+radius = 0.316
+
+[node name="SweepingDamageGiver" type="ShapeCast3D"]
+shape = SubResource("SphereShape3D_rk8dl")
+target_position = Vector3(0, 0, 0)
+collision_mask = 257
+collide_with_areas = true
+script = ExtResource("1_tm3f1")
