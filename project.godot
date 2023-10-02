@@ -24,8 +24,6 @@ Transition="*res://transition/transition.tscn"
 Cursor="*res://cursor/cursor.tscn"
 AudioManager="*res://audio/audio_manager.tscn"
 ShaderCacher="*res://particle_stuff/shader_cacher.gd"
-SmartQueuefree="*res://pool/smart_queuefree.gd"
-InstancePool="*res://pool/instance_pool.tscn"
 
 [display]
 
