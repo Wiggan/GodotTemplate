@@ -12,3 +12,7 @@ Therefore, all draw passes and such that are used in particle systems that are n
 ## Leaderboard
 
 There is an implementation for a http://dreamlo.com/ leaderboard. Go there and get your own if you want to use that feature.
+
+## Audio Randomizer addon
+
+Press ctrl + shift + alt + R to choose one or more SFX files. An AudioStreamRanzomizer will be created based on the selected files.
