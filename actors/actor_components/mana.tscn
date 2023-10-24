@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://nq0200ijgkhl"]
 
-[ext_resource type="Script" path="res://game/actor_components/mana.gd" id="1_lbhld"]
+[ext_resource type="Script" path="res://actors/actor_components/mana.gd" id="1_lbhld"]
 
 [node name="Mana" type="Node"]
 script = ExtResource("1_lbhld")

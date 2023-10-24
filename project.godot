@@ -21,7 +21,6 @@ Config="*res://menu/config.gd"
 GameManager="*res://game/game_manager.tscn"
 Env="*res://env.tscn"
 Transition="*res://transition/transition.tscn"
-Cursor="*res://cursor/cursor.tscn"
 AudioManager="*res://audio/audio_manager.tscn"
 ShaderCacher="*res://particle_stuff/shader_cacher.gd"
 

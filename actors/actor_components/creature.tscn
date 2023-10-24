@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpdkp37es0c88"]
 
-[ext_resource type="PackedScene" uid="uid://bwrm4ih3h6oeh" path="res://game/actor_components/health.tscn" id="1_qp66j"]
-[ext_resource type="PackedScene" uid="uid://b0r2mqqumnycv" path="res://game/actor_components/damage_receiver.tscn" id="2_1xum1"]
+[ext_resource type="PackedScene" uid="uid://bwrm4ih3h6oeh" path="res://actors/actor_components/health.tscn" id="1_qp66j"]
+[ext_resource type="PackedScene" uid="uid://b0r2mqqumnycv" path="res://actors/actor_components/damage_receiver.tscn" id="2_1xum1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f73pn"]
 radius = 0.29675

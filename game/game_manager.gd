@@ -35,7 +35,6 @@ func pause():
 	
 func game_over():
 	get_tree().paused = true
-	Cursor.show_cursor()
 	Transition.fade_and_call(show_game_over_screen)
 	AudioManager.play_song(AudioManager.Song.SCORE, true, 2)
 
@@ -59,7 +58,6 @@ func restart(reset=true):
 	else:
 		load_game()
 	state = State.Game
-	Cursor.hide_cursor()
 	#Transition.fade_and_call(Transition.load_level.bind(ProjectSettings["application/run/main_scene"]))
 	Transition.fade_and_call(Transition.load_level.bind("res://game/Levels/home/home.tscn"))
 	get_tree().paused = false

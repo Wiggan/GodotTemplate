@@ -1,24 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://41u3xkh4aa60"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0bhk2"]
+[ext_resource type="PackedScene" uid="uid://hur1tqpsdlks" path="res://menu/base_menu_screen.tscn" id="1_8h1fl"]
 
-[node name="HowToPlay" type="Panel"]
-visible = false
-custom_minimum_size = Vector2(0, 750)
-theme_override_styles/panel = SubResource("StyleBoxTexture_0bhk2")
+[node name="base_menu_screen" instance=ExtResource("1_8h1fl")]
 
-[node name="HowToPlay" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(0, 750)
-layout_mode = 2
-offset_top = 5.0
-offset_right = 800.0
-offset_bottom = 755.0
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
-
-[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlay"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" index="0"]
 layout_mode = 2
 theme_override_constants/line_separation = 9
 theme_override_font_sizes/normal_font_size = 30

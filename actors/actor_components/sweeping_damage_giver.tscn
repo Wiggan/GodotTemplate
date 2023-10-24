@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxv3dwvlyfhw0"]
 
-[ext_resource type="Script" path="res://game/actor_components/sweeping_damage_giver.gd" id="1_tm3f1"]
+[ext_resource type="Script" path="res://actors/actor_components/sweeping_damage_giver.gd" id="1_tm3f1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rk8dl"]
 radius = 0.316

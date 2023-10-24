@@ -1,129 +1,37 @@
 [gd_scene load_steps=2 format=3 uid="uid://roiivo44gftv"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0bhk2"]
+[ext_resource type="PackedScene" uid="uid://hur1tqpsdlks" path="res://menu/base_menu_screen.tscn" id="1_nf50d"]
 
-[node name="Credits" type="Panel"]
-visible = false
-custom_minimum_size = Vector2(0, 750)
-theme_override_styles/panel = SubResource("StyleBoxTexture_0bhk2")
+[node name="base_menu_screen" instance=ExtResource("1_nf50d")]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
-
-[node name="Credits" type="VBoxContainer" parent="MarginContainer"]
+[node name="Credits" type="VBoxContainer" parent="MarginContainer" index="0"]
 custom_minimum_size = Vector2(0, 591.655)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/Credits"]
+[node name="Label" type="Label" parent="MarginContainer/Credits" index="0"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 106
 text = "CREDITS"
 horizontal_alignment = 1
 
-[node name="Credits" type="GridContainer" parent="MarginContainer/Credits"]
+[node name="Credits" type="GridContainer" parent="MarginContainer/Credits" index="1"]
 layout_mode = 2
+size_flags_horizontal = 4
 columns = 2
 
-[node name="3DArt" type="Label" parent="MarginContainer/Credits/Credits"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Game Design, 3D Art & Animations:"
-horizontal_alignment = 2
-
-[node name="LinkButton4" type="LinkButton" parent="MarginContainer/Credits/Credits" groups=["Button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Xandruher"
-uri = "https://xandruher.itch.io/"
-
-[node name="Dev" type="Label" parent="MarginContainer/Credits/Credits"]
+[node name="Dev" type="Label" parent="MarginContainer/Credits/Credits" index="0"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Lead Development:"
 horizontal_alignment = 2
 
-[node name="LinkButton" type="LinkButton" parent="MarginContainer/Credits/Credits" groups=["Button"]]
+[node name="LinkButton" type="LinkButton" parent="MarginContainer/Credits/Credits" index="1" groups=["Button"]]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "WigHz"
 uri = "https://wighz.itch.io/"
 
-[node name="2DArt" type="Label" parent="MarginContainer/Credits/Credits"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "2D Art:"
-horizontal_alignment = 2
-
-[node name="LinkButton3" type="LinkButton" parent="MarginContainer/Credits/Credits" groups=["Button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Kyveri"
-uri = "https://www.artstation.com/kyveri"
-
-[node name="Music" type="Label" parent="MarginContainer/Credits/Credits"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Score Composer:"
-horizontal_alignment = 2
-
-[node name="LinkButton6" type="LinkButton" parent="MarginContainer/Credits/Credits" groups=["Button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Sashatouille"
-uri = "https://sashatouille.itch.io/"
-
-[node name="SFX" type="Label" parent="MarginContainer/Credits/Credits"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Sound Design:"
-horizontal_alignment = 2
-
-[node name="LinkButton2" type="LinkButton" parent="MarginContainer/Credits/Credits" groups=["Button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Daniel Adamczyk"
-uri = "https://buzzmsc.itch.io/"
-
-[node name="Dev2" type="Label" parent="MarginContainer/Credits/Credits"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "AI Behavior Dev:"
-horizontal_alignment = 2
-
-[node name="LinkButton5" type="LinkButton" parent="MarginContainer/Credits/Credits" groups=["Button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Travh98"
-uri = "https://travh98.itch.io/"
-
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/Credits"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Credits" index="2"]
 layout_mode = 2
 theme_override_constants/separation = 110
-
-[node name="Credits2" type="GridContainer" parent="MarginContainer/Credits"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-columns = 2
-
-[node name="Font" type="Label" parent="MarginContainer/Credits/Credits2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Font:"
-horizontal_alignment = 2
-
-[node name="LinkButton2" type="LinkButton" parent="MarginContainer/Credits/Credits2" groups=["Button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Skandal"
-uri = "https://www.1001fonts.com/skandal-font.html"

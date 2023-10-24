@@ -9,6 +9,7 @@ offset_bottom = 60.0
 
 [node name="GameplayOptions" type="GridContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 columns = 2
 script = ExtResource("1_5kx88")
 

@@ -19,4 +19,3 @@ func restart():
 	GameManager.state = GameManager.State.Game
 	Transition.fade_and_call(Transition.load_level.bind("res://game/game.tscn"))
 	#GameManager.unpause()
-	Cursor.hide_cursor()

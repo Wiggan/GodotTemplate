@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://beqa0xujc2w2f"]
+[gd_scene load_steps=6 format=3 uid="uid://beqa0xujc2w2f"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="2_3tjy3"]
 [ext_resource type="PackedScene" uid="uid://dkho6dqhdf3hw" path="res://menu/options.tscn" id="2_kuhxs"]
@@ -6,170 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bbndvhdy1dfel" path="res://menu/high_score.tscn" id="4_vmyfa"]
 [ext_resource type="PackedScene" uid="uid://41u3xkh4aa60" path="res://menu/how_to_play.tscn" id="5_msbyt"]
 
-[sub_resource type="Animation" id="Animation_os7k4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../MenuItems:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../MenuItems:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_whd1w"]
-resource_name = "hide_submenu"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../MenuItems:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../MenuItems:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_cemkc"]
-resource_name = "show_submenu"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../MenuItems:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../MenuItems:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_72tno"]
-_data = {
-"RESET": SubResource("Animation_os7k4"),
-"hide_submenu": SubResource("Animation_whd1w"),
-"show_submenu": SubResource("Animation_cemkc")
-}
-
 [node name="MenuUI" type="Control"]
-process_mode = 2
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,53 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="MenuItems" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(300, 500)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
 script = ExtResource("2_3tjy3")
-
-[node name="Resume" type="Button" parent="MenuItems" groups=["Button"]]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Exit")
-text = "Resume"
-
-[node name="Start" type="Button" parent="MenuItems" groups=["Button"]]
-layout_mode = 2
-text = "New Game"
-
-[node name="Highscore" type="Button" parent="MenuItems" groups=["Button"]]
-layout_mode = 2
-text = "Leader Board"
-
-[node name="HowToPlay" type="Button" parent="MenuItems" groups=["Button"]]
-layout_mode = 2
-text = "How To Play"
-
-[node name="Options" type="Button" parent="MenuItems" groups=["Button"]]
-layout_mode = 2
-text = "Options"
-
-[node name="Credits" type="Button" parent="MenuItems" groups=["Button"]]
-layout_mode = 2
-text = "Credits"
-
-[node name="Exit" type="Button" parent="MenuItems" groups=["Button"]]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../Resume")
-text = "Exit"
 
 [node name="SubMenus" type="VBoxContainer" parent="."]
 visible = false
@@ -242,27 +34,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Options" parent="SubMenus" instance=ExtResource("2_kuhxs")]
-visible = false
-layout_mode = 2
-
-[node name="Credits" parent="SubMenus" instance=ExtResource("3_6jhuo")]
-custom_minimum_size = Vector2(800, 750)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-
-[node name="HighScore" parent="SubMenus" instance=ExtResource("4_vmyfa")]
-custom_minimum_size = Vector2(800, 750)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="HowToPlay" parent="SubMenus" instance=ExtResource("5_msbyt")]
-custom_minimum_size = Vector2(800, 750)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-
 [node name="BackButton" type="Button" parent="SubMenus" groups=["Button"]]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -270,17 +41,78 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back"
 
-[node name="SubMenuAnimator" type="AnimationPlayer" parent="."]
-root_node = NodePath("../SubMenus")
-libraries = {
-"": SubResource("AnimationLibrary_72tno")
-}
+[node name="Screens" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[connection signal="pressed" from="MenuItems/Resume" to="MenuItems" method="_on_resume_pressed"]
-[connection signal="pressed" from="MenuItems/Start" to="MenuItems" method="_on_start_pressed"]
-[connection signal="pressed" from="MenuItems/Highscore" to="MenuItems" method="_on_highscore_pressed"]
-[connection signal="pressed" from="MenuItems/HowToPlay" to="MenuItems" method="_on_how_to_play_pressed"]
-[connection signal="pressed" from="MenuItems/Options" to="MenuItems" method="_on_options_pressed"]
-[connection signal="pressed" from="MenuItems/Credits" to="MenuItems" method="_on_credits_pressed"]
-[connection signal="pressed" from="MenuItems/Exit" to="MenuItems" method="_on_exit_pressed"]
-[connection signal="pressed" from="SubMenus/BackButton" to="MenuItems" method="_on_back_button_pressed"]
+[node name="Options" parent="Screens" instance=ExtResource("2_kuhxs")]
+visible = false
+layout_mode = 2
+
+[node name="Credits" parent="Screens" instance=ExtResource("3_6jhuo")]
+visible = false
+custom_minimum_size = Vector2(800, 750)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="HighScore" parent="Screens" instance=ExtResource("4_vmyfa")]
+visible = false
+custom_minimum_size = Vector2(800, 750)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HowToPlay" parent="Screens" instance=ExtResource("5_msbyt")]
+visible = false
+custom_minimum_size = Vector2(800, 750)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="MenuItems" type="VBoxContainer" parent="Screens"]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Resume" type="Button" parent="Screens/MenuItems" groups=["Button"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Exit")
+text = "Resume"
+
+[node name="Start" type="Button" parent="Screens/MenuItems" groups=["Button"]]
+layout_mode = 2
+text = "New Game"
+
+[node name="HighScore" type="Button" parent="Screens/MenuItems" groups=["Button"]]
+layout_mode = 2
+text = "Leader Board"
+
+[node name="HowToPlay" type="Button" parent="Screens/MenuItems" groups=["Button"]]
+layout_mode = 2
+text = "How To Play"
+
+[node name="Options" type="Button" parent="Screens/MenuItems" groups=["Button"]]
+layout_mode = 2
+text = "Options"
+
+[node name="Credits" type="Button" parent="Screens/MenuItems" groups=["Button"]]
+layout_mode = 2
+text = "Credits"
+
+[node name="Exit" type="Button" parent="Screens/MenuItems" groups=["Button"]]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Resume")
+text = "Exit"
+
+[connection signal="pressed" from="SubMenus/BackButton" to="Screens/MenuItems" method="_on_back_button_pressed"]
+[connection signal="back" from="Screens/Options" to="." method="show_menu"]
+[connection signal="back" from="Screens/Credits" to="." method="show_menu"]
+[connection signal="back" from="Screens/HighScore" to="." method="show_menu"]
+[connection signal="back" from="Screens/HowToPlay" to="." method="show_menu"]
+[connection signal="pressed" from="Screens/MenuItems/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Screens/MenuItems/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Screens/MenuItems/Exit" to="." method="_on_exit_pressed"]

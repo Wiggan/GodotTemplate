@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0r2mqqumnycv"]
 
-[ext_resource type="Script" path="res://game/actor_components/damage_receiver.gd" id="1_xtiw3"]
+[ext_resource type="Script" path="res://actors/actor_components/damage_receiver.gd" id="1_xtiw3"]
 
 [node name="DamageReceiver" type="Area3D"]
 collision_layer = 2147483648

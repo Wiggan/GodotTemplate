@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cp5256mcou0ms"]
 
-[ext_resource type="Script" path="res://game/actor_components/damage_giver.gd" id="1_tfmp5"]
+[ext_resource type="Script" path="res://actors/actor_components/damage_giver.gd" id="1_tfmp5"]
 
 [node name="DamageGiver" type="Area3D"]
 collision_layer = 0
