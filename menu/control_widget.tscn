@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://y4x1arfsr8xi"]
+[gd_scene load_steps=2 format=3 uid="uid://y4x1arfsr8xi"]
 
 [ext_resource type="Script" path="res://menu/control_widget.gd" id="2_xxnpe"]
 
@@ -9,7 +9,6 @@ anchors_preset = 0
 script = ExtResource("2_xxnpe")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(750, 0)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

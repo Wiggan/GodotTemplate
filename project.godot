@@ -18,10 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 Config="*res://menu/config.gd"
+AudioManager="*res://audio/audio_manager.tscn"
 GameManager="*res://game/game_manager.tscn"
 Env="*res://env.tscn"
 Transition="*res://transition/transition.tscn"
-AudioManager="*res://audio/audio_manager.tscn"
 ShaderCacher="*res://particle_stuff/shader_cacher.gd"
 
 [display]
@@ -40,6 +40,10 @@ movie_writer/fps=30
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/randomizer_generator/plugin.cfg")
+
+[gui]
+
+theme/custom="res://ui/theme.tres"
 
 [input]
 

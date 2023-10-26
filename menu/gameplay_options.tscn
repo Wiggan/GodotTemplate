@@ -3,9 +3,11 @@
 [ext_resource type="Script" path="res://menu/gameplay_options.gd" id="1_5kx88"]
 
 [node name="MarginContainer" type="MarginContainer"]
-offset_top = 60.0
-offset_right = 135.0
-offset_bottom = 60.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GameplayOptions" type="GridContainer" parent="."]
 layout_mode = 2

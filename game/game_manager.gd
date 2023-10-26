@@ -59,7 +59,7 @@ func restart(reset=true):
 		load_game()
 	state = State.Game
 	#Transition.fade_and_call(Transition.load_level.bind(ProjectSettings["application/run/main_scene"]))
-	Transition.fade_and_call(Transition.load_level.bind("res://game/Levels/home/home.tscn"))
+	Transition.fade_and_call(Transition.load_level.bind("res://game.tscn"))
 	get_tree().paused = false
 
 
